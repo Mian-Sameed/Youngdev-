@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <style>
+        /* Basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        h1, h2 {
+            color: white;
+        }
+
+        /* Eye-catching colors */
+        header {
+            background-color: #4CAF50; /* Vibrant green */
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #ff5722; /* Bright orange */
+            padding: 15px;
+        }
+
+        nav a {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #ff784e; /* Hover state color */
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #ff9a76;
+        }
+
+        main {
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Grid Layout */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Queries for larger screens */
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            header {
+                text-align: left;
+                padding: 30px;
+            }
+
+            nav {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        /* For very large screens */
+        @media (min-width: 1440px) {
+            .container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Our Responsive Webpage</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <h2>Main Content Area</h2>
+        <div class="container">
+            <div class="card">
+                <h3>Card 1</h3>
+                <p>This is some text inside the first card. You can adjust the content as needed.</p>
+            </div>
+            <div class="card">
+                <h3>Card 2</h3>
+                <p>This is some text inside the second card. You can adjust the content as needed.</p>
+            </div>
+            <div class="card">
+                <h3>Card 3</h3>
+                <p>This is some text inside the third card. You can adjust the content as needed.</p>
+            </div>
+            <div class="card">
+                <h3>Card 4</h3>
+                <p>This is some text inside the fourth card. You can adjust the content as needed.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Website. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

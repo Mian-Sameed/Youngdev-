@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Webpage with Modal and Dropdown</title>
+    <style>
+        /* Basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #ff5722;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #ff784e;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #ff9a76;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ff5722;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .modal-header, .modal-footer {
+            background-color: #4CAF50;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .modal-close {
+            cursor: pointer;
+            float: right;
+            font-size: 18px;
+        }
+
+        /* Content */
+        main {
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            header {
+                text-align: left;
+                padding: 30px;
+            }
+
+            nav {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Button for modal */
+        .modal-btn {
+            padding: 10px 20px;
+            background-color: #ff5722;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-btn:hover {
+            background-color: #ff784e;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Interactive Webpage with Modal and Dropdown</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+
+        <!-- Dropdown Menu -->
+        <div class="dropdown">
+            <a href="javascript:void(0)">More</a>
+            <div class="dropdown-content">
+                <a href="#portfolio">Portfolio</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h2>Content Area</h2>
+        <div class="container">
+            <div class="card">
+                <h3>Card 1</h3>
+                <p>Some information goes here. This is the first card.</p>
+            </div>
+            <div class="card">
+                <h3>Card 2</h3>
+                <p>Some information goes here. This is the second card.</p>
+            </div>
+            <div class="card">
+                <h3>Card 3</h3>
+                <p>Some information goes here. This is the third card.</p>
+            </div>
+        </div>
+
+        <!-- Modal Trigger -->
+        <button class="modal-btn" id="modalBtn">Click to Open Modal</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Website. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-close" id="closeModal">&times;</span>
+                <h2>Modal Title</h2>
+            </div>
+            <p>This is the modal content. It is a small popup window!</p>
+            <div class="modal-footer">
+                <p>Modal Footer</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        var modal = document.getElementById("myModal");
+        var modalBtn = document.getElementById("modalBtn");
+        var closeModal = document.getElementById("closeModal");
+
+        modalBtn.onclick = function() {
+            modal.style.display = "flex";
+        }
+
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
